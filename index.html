@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d45059756f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@100&family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Signup Form</title>
+</head>
+<body>
+    <div id="sideimg">
+        <div id="logo-bar">
+            <div id="logo-icon"><img class="logo-img" src="img/odin.png"></div>
+            <div id="logo-bar-text">ODINPIX</div>
+        </div>
+        <div id="credit">Photo By Halie West on <a class="credit-link" href="https://unsplash.com/photos/25xggax4bSA" target="_blank">Unsplash</a></div>
+    </div>
+    <div id="form-main">
+        <section id="info" class="form-section">
+            <div id="info-text">
+                <p>
+                    We have an amazing collection of free photos, Wallpapers and icons.
+                    <br>
+                    Make your websites look great by using them.
+                    <br>
+                    <br>
+                    Sign Up <em>NOW</em> to get started!
+                </p>
+            </div>
+        </section>
+        <form>
+            <section id="form-ip" class="form-section">
+                <h3>Let's Do this!</h3>
+                <div id="form-flex">
+                    <div class="item">
+                        <label for="firstName">FIRST NAME</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                        
+                    <div class="item">
+                        <label class="item" for="lastName">LAST NAME</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+    
+                    <div class="item">
+                        <label class="item" for="user-email">EMAIL</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+    
+                    <div class="item">
+                        <label class="item" for="phone">PHONE</label>
+                        <input type="text" id="phone" pattern="[789][0-9]{9}" onkeyup="checknum()" placeholder="+91-" required>
+                        <br>
+                        <span id="num-msg" class="error-msg"></span>
+                    </div>
+    
+                    <div class="item">
+                        <label class="item" for="password">PASSWORD</label>
+                        <input type="password" id="password" required >
+                    </div>
+    
+                    <div class="item">
+                        <label class="item" for="confirm-password">CONFIRM PASSWORD</label>
+                        <input type="password" id="confirm-password" onkeyup="checkpwd()" required>
+                        <br><span id="msg" class="error-msg"></span>
+                    </div>       
+                        
+                </div>
+            </section>
+    
+            <section id="submit-section" class="form-section">
+                <button id="submit-btn" type="submit">CREATE ACCOUNT</button>
+                <br><br>
+                <p>Already have an account?<a href="#" class="login">Log In</a></p>
+                <div id="footer">Created by <a class="footer-link" href="https://github.com/priya-survase" target="_blank">priya-survase <i class="fab fa-github"></i></a></div>
+            </section>
+        </form>
+        
+    </div>
+    <script>
+        function checkpwd(){
+            var pwd = document.getElementById('password').value;
+            var cpwd = document.getElementById('confirm-password').value;
+            if(pwd != cpwd){
+                document.getElementById('msg').innerHTML = "Passwords do not match!";
+            }
+            else document.getElementById('msg').innerHTML = "";
+        }
+
+        function checknum(){
+            var num = document.getElementById('phone');
+            var valid = num.checkValidity();
+            if(valid){
+                document.getElementById('num-msg').innerHTML = "";
+            }
+            else{
+                document.getElementById('num-msg').innerHTML = "Enter Valid Phone number!";
+            }
+
+        }
+    </script>
+</body>
+</html>
